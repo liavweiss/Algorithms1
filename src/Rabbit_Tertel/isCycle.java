@@ -23,7 +23,6 @@ public class isCycle {
      * LinkedList builder for the problem.
      *
      * @param size - the size of the list .
-     * @return - the LinkedList.
      */
     public void isCycle_builder(int size){
 

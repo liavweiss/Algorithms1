@@ -25,7 +25,6 @@ public class ParkingProblem_LinkedList {
      * LinkedList builder for the problem.
      *
      * @param size - the size of the car.
-     * @return - the cars LinkedList.
      */
     public void ParkingProblem_builder(int size) {
         if(size==0){return;}
