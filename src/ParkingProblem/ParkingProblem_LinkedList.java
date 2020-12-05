@@ -1,8 +1,5 @@
 package ParkingProblem;
 
-import javax.imageio.stream.ImageInputStream;
-import java.awt.*;
-import java.util.LinkedList;
 
 /**
  * This class solves the parking problem using a LinkedList.

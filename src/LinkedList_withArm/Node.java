@@ -1,4 +1,4 @@
-package ArmLengthProblem;
+package LinkedList_withArm;
 
 public class Node {
     private int data;

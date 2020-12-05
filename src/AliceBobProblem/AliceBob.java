@@ -1,5 +1,8 @@
 package AliceBobProblem;
 
+/**
+ * This class represents all the methods of the game between Alice and Bob.
+ */
 public class AliceBob {
         //**************************************************
 //************************************************

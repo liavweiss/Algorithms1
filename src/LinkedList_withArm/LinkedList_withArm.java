@@ -1,10 +1,12 @@
-package ArmLengthProblem;
+package LinkedList_withArm;
 
-import ParkingProblem.ParkingProblem_LinkedList;
-import Rabbit_Tertel.Node;
+
 
 import java.util.LinkedList;
 
+/**
+ * This class solves the problem of a list associated with an arm
+ */
 public class LinkedList_withArm {
 
         public LinkedList<Node> list;
