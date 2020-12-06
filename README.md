@@ -26,3 +26,8 @@ This class gives some examples of functions realized by recursion or loop, and t
 ### NumberGameProblem:
  This class represents the problem of numbers game, where players are given an even array of numbers and in each turn 
  they can take either the outer left or the outer right, the winner is the one whose sum of numbers is the largest.
+ 
+ ### MedianProblem:
+ This algorithm is divided into two parts:
+* Algorithm for solving a median problem in which the user receives an array and has to return an organ larger than the median.
+* An algorithm for solving the median problem in which the user receives two sorted arrays and must return an array with all the larger safflowers from the common median to the two combined arrays.
