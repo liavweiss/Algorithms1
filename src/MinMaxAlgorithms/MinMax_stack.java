@@ -5,6 +5,7 @@ package MinMaxAlgorithms;
  */
 public class MinMax_stack {
 
+//comparisons: n/2+n/4+n/8.....+1 = n-1 + log(n).
    public static int max1Max2(Node [] a , int low , int high){
         if(low<high){
            int index=0;
