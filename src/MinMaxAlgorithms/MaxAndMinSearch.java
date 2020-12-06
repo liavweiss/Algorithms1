@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class MaxAndMinSearch {
 
+    //O(n) - 3n/2 comparison.
     public static int[] maxAndMinSearchOnArray(int[] arr) {
 
         //the first is the max the second is thr min ant the third is the number of the comparisons.

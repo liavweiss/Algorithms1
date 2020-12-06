@@ -1,7 +1,7 @@
 package MinMaxAlgorithms;
 
 public class MaxSearch {
-    // O(n)
+    // O(n) - n-1 comparison
     public  static int maxSearchOnArray(int [] arr){
         int max = arr[0];
         for(int i=1; i<arr.length; i++){
