@@ -19,3 +19,10 @@ In this algorithm we check whether a particular list is circular or not.
 
 ### LinkedList_withArm:
 In this algorithm we check if a particular list has a non-circular start and a circular end.
+
+### Recursion_loop:
+This class gives some examples of functions realized by recursion or loop, and their priority.
+
+### NumberGameProblem:
+ This class represents the problem of numbers game, where players are given an even array of numbers and in each turn 
+ they can take either the outer left or the outer right, the winner is the one whose sum of numbers is the largest.
