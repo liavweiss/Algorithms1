@@ -32,15 +32,21 @@ This class gives some examples of functions realized by recursion or loop, and t
 * Algorithm for solving a median problem in which the user receives an array and has to return an organ larger than the median.
 * An algorithm for solving the median problem in which the user receives two sorted arrays and must return an array with all the larger safflowers from the common median to the two combined arrays.
 
-
 ### SecretaryProblem:
  This department represents the problem of the secretary, the problem is: a certain office gives service
  to n clients, the purpose of the secretary is to reduce as much as possible the average time that the clients
  are in the office.
  We see that the average time is smaller when the other adjacent treatment times are in ascending order.
 
-
 ### PizzaProblem:
  This class presents an algorithm for solving the pizza problem.
  The pizza problem: Two brothers ordered a family pizza, one brother eating X times faster than the other brother eating.
  The two must not reach the last triangle at the same time, this algorithm offers the optimal pizza distribution.
+ 
+ ### Lcs:
+ This class represents an algorithm for solving the LCS problem - finding the largest common string
+ (order is important, sequences are not important).
+ 
+ ### PlaneProblem:
+ This class represents the problem of the plane, the plane must reach from point (0,0) to point (m, n) at the minimum cost, 
+ while the rest of the plane is allowed to move down and to the right.
