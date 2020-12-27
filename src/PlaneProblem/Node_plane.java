@@ -8,39 +8,52 @@ package PlaneProblem;
 
 import java.util.Arrays;
 
-public class Node_plane {
+class Node {
+
     public int xPrice;
     public int yPrice;
     public int price;
     public int nPath;
-    public int counter=0;
+    public int counter = 0;
 
 
-    public Node_plane(int x , int y){
-        this.xPrice=x;
-        this.yPrice=y;
-        this.price=0;
-        this.nPath=0;
+    public Node(int x, int y) {
+        this.xPrice = x;
+        this.yPrice = y;
+        this.price = 0;
+        this.nPath = 0;
     }
 
     @Override
     public String toString() {
-        return counter+++"{" +"price:"+ price + " xPrice=" + xPrice + " yPrice=" + yPrice + '}';
+        return counter++ + "{" + "price:" + price + " xPrice=" + xPrice + " yPrice=" + yPrice + '}';
     }
 
-    public static Node_plane [][] init_matrix(int row , int col){
-        Node_plane matrix [] [] = new Node_plane[row][col];
+}
 
-        for(int i=0;i<row;i++){
-            for(int j=0; j<col; j++){
-                matrix[i][j] = new Node_plane((int)(Math.random()*10) , (int)(Math.random()*10));
+class planeProblem {
+
+    public static Node[][] node_plane_mat;
+
+
+    public planeProblem() {
+        node_plane_mat = init_matrix(10, 10);
+    }
+
+
+    public static Node[][] init_matrix(int row, int col) {
+        Node matrix[][] = new Node[row][col];
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                matrix[i][j] = new Node((int) (Math.random() * 10), (int) (Math.random() * 10));
             }
         }
         return matrix;
     }
 
     //O(n+m): n-row , m-col.
-    public static void pricePathMatrix_builder(Node_plane [][] mat) {
+    public static void pricePathMatrix_builder(Node[][] mat) {
         for (int j = 1; j < mat[0].length; j++) {
             mat[0][j].price = mat[0][j - 1].price + mat[0][j - 1].xPrice;
             mat[0][j].nPath = 1;
@@ -68,11 +81,89 @@ public class Node_plane {
         }
     }
 
+    ////O(n+m): n=row , m=col.
+    public static String getBestPath_1() {
+        String path = "";
+        int i = node_plane_mat.length - 1;
+        int j = node_plane_mat[0].length - 1;
+
+        while (i > 0 && j > 0) {
+            int x = node_plane_mat[i][j - 1].price + node_plane_mat[i][j - 1].xPrice;
+            int y = node_plane_mat[i - 1][j].price + node_plane_mat[i - 1][j].yPrice;
+
+            if (y <= x) {
+                path = "up, " + path;
+                i--;
+            } else {                        // if (y >= x)
+                path = "right, " + path;
+                j--;
+            }
+        }
+        while (j > 0) {
+            path = "right, " + path;
+            j--;
+        }
+        while (i > 0) {
+            path = "up, " + path;
+            i--;
+        }
+        return path;
+    }
+
+
+    //  O(n+m): n=row , m=col.
+    // return the path on recursion.
+    public static void getBestTrack_1_Rec(String path, int i, int j) {
+
+        if (i > 0 && j > 0) {
+            int x = node_plane_mat[i][j-1]. price + node_plane_mat[i][j-1].xPrice;
+            int y = node_plane_mat[i-1][j].price + node_plane_mat[i-1][j].yPrice;
+
+            if (y <= x)
+                getBestTrack_1_Rec("up, "+ path, i-1, j);
+            if (y > x)
+                getBestTrack_1_Rec("right, "+ path, i, j-1);
+        }
+        if (i == 0 && j > 0)
+            getBestTrack_1_Rec("right, "+ path, i, j-1);
+        if (i > 0 && j == 0)
+            getBestTrack_1_Rec("up, "+ path, i-1, j);
+        if (i == 0 && j == 0)			//  i == 0 && j == 0
+            System.out.println("path : " + path);
+    }
+
+    //  O(n*m): n=row , m=col.
+    // return all paths recursive
+    public static void getAllBestTracks(String path, int i, int j) {
+
+        if (i > 0 && j > 0) {
+            int x = node_plane_mat[i][j-1]. price + node_plane_mat[i][j-1].xPrice;
+            int y = node_plane_mat[i-1][j].price + node_plane_mat[i-1][j].yPrice;
+
+            if (y < x)
+                getAllBestTracks("up, "+ path, i-1, j);
+            if (y > x)
+                getAllBestTracks("right, "+ path, i, j-1);
+            if (y == x) {
+                getAllBestTracks("up, "+ path, i-1, j);
+                getAllBestTracks("right, " + path, i, j-1);
+            }
+        }
+        if (i == 0 && j > 0)
+            getAllBestTracks("right, "+ path, i, j-1);
+        if (i > 0 && j == 0)
+            getAllBestTracks("up, "+ path, i-1, j);
+        if (i == 0 && j == 0)			//  i == 0 && j == 0
+            System.out.println("path : " + path);
+    }
+
 
     public static void main(String[] args) {
-       Node_plane [] [] matrix = init_matrix(2,2);
+        Node[][] matrix = init_matrix(2, 2);
         System.out.println(Arrays.deepToString(matrix));
         pricePathMatrix_builder(matrix);
         System.out.println(Arrays.deepToString(matrix));
+
     }
+
 }
