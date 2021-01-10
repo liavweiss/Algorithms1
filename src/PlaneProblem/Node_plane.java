@@ -161,9 +161,9 @@ class planeProblem {
     public static void main(String[] args) {
         Node[][] matrix = init_matrix(2, 2);
         System.out.println(Arrays.deepToString(matrix));
-        pricePathMatrix_builder(matrix);
-        System.out.println(Arrays.deepToString(matrix));
-
+        node_plane_mat=matrix;
+        String s = getBestPath_1();
+        System.out.println(s);
     }
 
 }

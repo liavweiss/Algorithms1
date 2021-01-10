@@ -4,7 +4,7 @@ package Lcs;
  * This class represents an algorithm for solving the LCS problem - finding the largest common string
  * (order is important, sequences are not important).
  */
-public class Lcs {
+public class Lcs_Dynamic {
 
     public static int[][] matrixBuilder(String x, String y) {
         int row = x.length() + 1;
@@ -56,7 +56,7 @@ public class Lcs {
 
     public static void main(String[] args) {
         String s1 = "abcdefgh";
-        String s2 = "abjhcfdabcdelf";
+        String s2 = "abjhcfdabcdelfg";
 
         System.out.println(lsc(s1,s2));
     }
