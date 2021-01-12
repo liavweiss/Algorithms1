@@ -47,6 +47,19 @@ This class gives some examples of functions realized by recursion or loop, and t
  This class represents an algorithm for solving the LCS problem - finding the largest common string
  (order is important, sequences are not important).
  
+ ### Lis:
+ This class represents an algorithm for solving the LIS problem - finding the longest rising sub-series
+ (order is important, sequences are not important).
+ 
  ### PlaneProblem:
  This class represents the problem of the plane, the plane must reach from point (0,0) to point (m, n) at the minimum cost, 
  while the rest of the plane is allowed to move down and to the right.
+ 
+ ### PrisonersProblem:
+ This class represents the solution to the prisoners' problem, if the light is on and if not.
+ 
+ ### FibonacciProblem:
+ This class represents the way to solve Fibonacci problem with complexity of O(log n).
+ 
+ ### PowerProblem:
+ This class represents the way to compute a power with complexity of O(log n).
