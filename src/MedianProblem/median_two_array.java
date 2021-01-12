@@ -13,11 +13,11 @@ public class median_two_array {
     public static int [] medianArray(int [] a , int [] b) {
         int n = a.length-1; // a.length=b.length
         int[] c = new int[n+1];
-        int i = 0, j = n, k = n;
-        c[i] = Math.max(a[i], b[n -1]);
+        int i = n, j = n, k = n;
+        c[i] = Math.max(a[i], b[n -i +1]);
         while (k >= 0) {
             if (a[i] >= b[j]) {
-                c[k--] = a[i++];
+                c[k--] = a[i--];
             } else {
                 c[k--] = b[j--];
             }
@@ -26,12 +26,9 @@ public class median_two_array {
     }
 
     public static void main(String[] args) {
-        int [] a =new int [5];
-        int [] b= new int [5];
-        for(int i=0; i<a.length; i++){
-            a[i] = (int)(Math.random()*10);
-            b[i] = (int)(Math.random()*10);
-        }
+        int [] a ={4,50,100,120,200};
+        int [] b= {45,51,78,91,102};
+
         int [] c = medianArray(a,b);
         System.out.println(Arrays.toString(a));
         System.out.println(Arrays.toString(b));

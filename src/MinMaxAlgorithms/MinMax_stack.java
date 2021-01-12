@@ -48,5 +48,6 @@ public class MinMax_stack {
     public static void main(String[] args) {
         int [] arr ={0,1,2,3,4,5,6,7,8,9,55,4,5,255};
         MaxMax2(arr);
+
     }
 }

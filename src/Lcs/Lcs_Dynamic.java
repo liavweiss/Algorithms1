@@ -1,11 +1,15 @@
 package Lcs;
 
+import java.util.Arrays;
+
 /**
  * This class represents an algorithm for solving the LCS problem - finding the largest common string
  * (order is important, sequences are not important).
+ * algorithms dynamic, complexity: O(m*n) -to build a matrix|X| = n , |Y| = m . O(m+n) - get the string.
  */
 public class Lcs_Dynamic {
 
+    //O(m*n)
     public static int[][] matrixBuilder(String x, String y) {
         int row = x.length() + 1;
         int col = y.length() + 1;
@@ -29,6 +33,7 @@ public class Lcs_Dynamic {
         return matrix;
     }
 
+    //O(m+n)
     public static int lsc(String x, String y) {
         int[][] matrix = matrixBuilder(x, y);
         int row = matrix.length;
@@ -51,6 +56,7 @@ public class Lcs_Dynamic {
                 i--;
             }
         }
+        System.out.println((Arrays.deepToString(matrix)));
         return result.length();
     }
 

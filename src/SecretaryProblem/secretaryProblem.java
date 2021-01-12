@@ -13,7 +13,7 @@ public class secretaryProblem {
 
     public static Double getAvarageTime(int [] times){
         Arrays.sort(times);
-        double avg = 0;
+        double avg = 0;//[2,3,4,6]
         for(int i : times){
             avg=avg+avg+i;
         }
@@ -21,7 +21,7 @@ public class secretaryProblem {
     }
 
     public static void main(String[] args) {
-        int [] time = {3 , 4 ,6 ,2 };
+        int [] time = {3,1,2,4};
         System.out.println(getAvarageTime(time));
         System.out.println(Arrays.toString(time));
     }

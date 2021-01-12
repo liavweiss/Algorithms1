@@ -3,7 +3,7 @@ package PizzaProblem;
 /**
  * This class presents an algorithm for solving the pizza problem.
  * The pizza problem: Two brothers ordered a family pizza, one brother eating X times faster than the other brother eating.
- * The two must not reach the last triangle at the same time, this algorithm offers the optimal pizza distribution.
+ * The two must not reach the last triangle at the same time, this algorithm offers the optimal pizza division.
  */
 public class pizzaProblem {
 
@@ -20,7 +20,13 @@ public class pizzaProblem {
             return ans;
     }
 
+    public static int getNumberOfPieces(double k) {
+        if(k == (int)k) return (int)k+1;
+        return (int)k+2;
+    }
+
     public static void main(String[] args) {
-        System.out.println(pizza(2,6));
+        System.out.println(pizza(1,3));
+        System.out.println(getNumberOfPieces(200));
     }
 }
