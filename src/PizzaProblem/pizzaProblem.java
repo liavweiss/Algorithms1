@@ -20,6 +20,7 @@ public class pizzaProblem {
             return ans;
     }
 
+    // practice from gil levi marathon.
     public static int getNumberOfPieces(double k) {
         if(k == (int)k) return (int)k+1;
         return (int)k+2;

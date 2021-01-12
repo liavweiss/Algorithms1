@@ -22,18 +22,18 @@ public class prisonersProblem {
                 if(enter[p]==false) {
                     enter[p]=true;
                     count++;
-                    System.out.println(p+" "+lamp+" "+ count +" ");
+                    System.out.println("For the first time the counter enter to the room");
                 }
                 if(!lamp) {
                     lamp=true;
                     count++;
-                    System.out.println("Power On "+p+" "+ count);
+                    System.out.println("The counter turn on the lamp and the count is: "+ count);
                 }
             }else {
                 if(enter[p]==false && lamp==true) {
                     lamp=false;
                     enter[p]=true;
-                    System.out.println("Power Off "+p);
+                    System.out.println("Power Off by the prisoner number: "+p);
                 }
             }
         }
@@ -46,23 +46,24 @@ public class prisonersProblem {
         }
         System.out.println("All the prisoners entered: "+ansAllEntered);
 
-
+        System.out.println("The number of steps is: ");
         return steps;
     }
     public static int prisonersLampUnknown(int n){
         boolean lamp = ((int)(Math.random()*2)==0) ? false : true;
-        System.out.println("lamp = "+lamp);
+        System.out.println("The status of the lamp = "+lamp);
         while (!lamp) {
             int p = (int)(Math.random()*n);
             if (p == 0)
                 lamp = true;
         }
-        System.out.println("lamp = "+lamp);
+        System.out.println("And now the status of the lamp = "+lamp);
         int steps = prisonersLampOn(n);
         return steps;
     }
     public static void main(String[] args) {
         System.out.println(prisonersLampOn(10));
+        System.out.println("************************************************************************\n");
         System.out.println(prisonersLampUnknown(10));
     }
 }
