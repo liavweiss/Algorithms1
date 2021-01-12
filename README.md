@@ -65,3 +65,4 @@ This class gives some examples of functions realized by recursion or loop, and t
  This class represents the way to compute a power with complexity of O(log n).
  
  ### Donuts problem
+ This class represents the problem of donuts, how long does it take to cook many donuts on one pan with a certain capacity
