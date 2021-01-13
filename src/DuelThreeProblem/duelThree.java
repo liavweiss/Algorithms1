@@ -19,7 +19,7 @@ public class duelThree {
     public static void duelOfTwoPlayers(Player p1, Player p2, int steps) {
         int numOfCase = 1;
         while (p1.isAlive && p2.isAlive) {
-            if (steps > 100) {
+            if (steps > 200) {
                 System.out.println("The time is over - and we have no winner");
                 return;
             }
@@ -93,7 +93,7 @@ public class duelThree {
         }
         if (!p1.isAlive) {
             if (numOfCase == 2) duelOfTwoPlayers(p3, p2, steps);
-            else duelOfTwoPlayers(p3, p2, steps);
+            else duelOfTwoPlayers(p2, p3, steps);
         } else if (!p2.isAlive) {
             if (numOfCase == 3) duelOfTwoPlayers(p1, p3, steps);
             else duelOfTwoPlayers(p3, p1, steps);
@@ -113,7 +113,7 @@ public class duelThree {
     }
 
     public static void main(String[] args) {
-        duel3d(new Player("A", 0.6), new Player("B", 0.8), new Player("C", 0.5));
+        duel3d(new Player("A", 1), new Player("B", 0.5), new Player("C", 0.8));
     }
 }
 
