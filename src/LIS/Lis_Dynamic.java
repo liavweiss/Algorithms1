@@ -49,16 +49,16 @@ public class Lis_Dynamic {
         int n = arr.length;
         int[][] mat = new int[n][n];
         mat[0][0] = arr[0];
-        int len = 1;
+        int end = 1;
         for (int i = 1; i < n; i++) {
-            int index = binarySearchAllSubSeries(mat,len,arr[i]);
+            int index = binarySearchAllSubSeries(mat,end,arr[i]);
             mat[index][index] = arr[i];
-            if(index == len) len++;
+            if(index == end) end++;
             copy(mat,index);
         }
-        int[] ans = new int[len];
+        int[] ans = new int[end];
         for (int i = 0; i < ans.length; i++) {
-            ans[i] = mat[len-1][i];
+            ans[i] = mat[end-1][i];
         }
         return ans;
     }

@@ -82,7 +82,7 @@ public class LinkedList_withArm {
                 }
             }
             rabbit = this.head;
-            if (tertel.getData() == rabbit.getData()){ run=false;}
+
             while (run) {
                 if (tertel.getData() == rabbit.getData()) {
                     run = false;

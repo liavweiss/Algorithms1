@@ -6,34 +6,35 @@ import java.util.Arrays;
 /**
  * This class represents the problem of numbers game, where players are given an even array of numbers and in each turn
  * they can take either the outer left or the outer right, the winner is the one whose sum of numbers is the largest.
+ * with algorithms dynamic with complexity of O(n^2).
  */
 public class NumberGame {
 
-    public static int[] [] matrixBuilder(int [] game){
-        int n=game.length;
-        int [] [] matrix = new int [n][n];
-        for(int i=0; i<n; i++){
+    public static int[][] matrixBuilder(int[] game) {
+        int n = game.length;
+        int[][] matrix = new int[n][n];
+        for (int i = 0; i < n; i++) {
             matrix[i][i] = game[i];
         }
-        for(int i=n-2; i>=0; i--){
-            for(int j=i+1; j<n; j++){
-                matrix[i][j]= Math.max(game[i] - matrix[i+1][j] , game[j] - matrix[i][j-1]);
+        for (int i = n - 2; i >= 0; i--) {
+            for (int j = i + 1; j < n; j++) {
+                matrix[i][j] = Math.max(game[i] - matrix[i + 1][j], game[j] - matrix[i][j - 1]);
             }
         }
         return matrix;
     }
 
-    public static void gameStrategy(int[] game){
+    public static void gameStrategy(int[] game) {
         int i = 0;
         int n = game.length;
-        int j = n-1;
-        int first=0 ;
-        int second=0;
-        int firstSum=0;
-        int secondSum=0;
-        int [] [] matrix = matrixBuilder(game);
+        int j = n - 1;
+        int first = 0;
+        int second = 0;
+        int firstSum = 0;
+        int secondSum = 0;
+        int[][] matrix = matrixBuilder(game);
 
-        for(int k=0; k<n/2; k++) {
+        for (int k = 0; k < n / 2; k++) {
             if (game[i] - matrix[i + 1][j] > game[j] - matrix[i][j - 1]) {
                 firstSum += game[i];
                 first = i++;
@@ -54,14 +55,16 @@ public class NumberGame {
                 second = j;
                 secondSum += game[j];
             }
-            System.out.println("first: game["+first+"] ="+game[first]+", second: game["+second+"] = "+game[second]);
+            System.out.println("first: game[" + first + "] =" + game[first] + ", second: game[" + second + "] = " + game[second]);
         }
-        System.out.println("firstSum= "+firstSum+", secondSum ="+secondSum+"the diff is: "+(firstSum-secondSum));
+        System.out.println("firstSum= " + firstSum + ", secondSum =" + secondSum + "the diff is: " + (firstSum - secondSum));
     }
 
+
+
     public static void main(String[] args) {
-        int [] arr = {1,16,8,4};
-        int [] [] matrix = matrixBuilder(arr);
+        int[] arr = {5, 6, 10, 11};
+        int[][] matrix = matrixBuilder(arr);
         System.out.println(Arrays.deepToString(matrix));
         gameStrategy(arr);
     }

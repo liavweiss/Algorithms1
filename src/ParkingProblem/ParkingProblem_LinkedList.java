@@ -109,7 +109,6 @@ public class ParkingProblem_LinkedList {
 
     public static void main(String[] args) {
         ParkingProblem_LinkedList problem = new ParkingProblem_LinkedList();
-        problem.ParkingProblem_builder(20);
         System.out.println(problem.toString());
         System.out.println(problem.calCars());
     }
