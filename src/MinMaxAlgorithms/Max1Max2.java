@@ -54,6 +54,9 @@ public class Max1Max2 {
         System.out.println("max1 :"+max1 +" max2: "+max2+"comparisons:"+comparisons);
     }
 
+
+
+
     public static void main(String[] args) {
         int [] arr = {0,1,2,3,4,5,6,7,8,9,1,5,4,8,7,88,55,100,60,150};
         Max1_Max2(arr);

@@ -46,7 +46,7 @@ public class Lcs_Greedy {
 
     public static void main(String[] args) {
         String str1 = "acxfcdf";
-        String str2 = "acxefcdfd";
+        String str2 = "acxehfcdfd";
         System.out.println(greedyLCS(str1,str2));
         System.out.println(greedyLCSImproved(str1,str2));
     }

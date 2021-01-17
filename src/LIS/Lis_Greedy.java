@@ -39,7 +39,7 @@ public class Lis_Greedy {
     }
 
     //Lis by Lcs.
-    // O(n^2) - the better algorithm of greedy.(give yoe the final correct answer)
+    // O(n^2) - the better algorithm of greedy.(give you the final correct answer)
     public static int[] LIS_usingLCS(int[] arr) {
         int[] s_arr = new int[arr.length];
         for (int i = 0; i < s_arr.length; i++) {

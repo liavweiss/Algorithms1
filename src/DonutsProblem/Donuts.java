@@ -13,4 +13,8 @@ public class Donuts {
         if((time*donutsNum)%capacity == 0) return (time*donutsNum)/capacity;
         return (time*donutsNum)/capacity + 1;
     }
+
+    public static void main(String[] args) {
+        System.out.println(getTime(10,6));
+    }
 }

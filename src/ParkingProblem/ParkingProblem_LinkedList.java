@@ -5,7 +5,7 @@ package ParkingProblem;
  * This class solves the parking problem using a LinkedList.
  */
 public class ParkingProblem_LinkedList {
-    public Node head,last;
+    public Node head, last;
     final char v = 'v', w = 'w';
 
 
@@ -17,25 +17,28 @@ public class ParkingProblem_LinkedList {
     }
 
 
-
     /**
      * LinkedList builder for the problem.
      *
      * @param size - the size of the car.
      */
     public void ParkingProblem_builder(int size) {
-        if(size==0){return;}
-        this.head = new Node((char) ('a' + (int) (Math.random() * 18)),null,null);
-        Node temp=this.head;
-        for (int i =1; i < size-1 ; i++) {
+        if (size == 0) {
+            return;
+        }
+        this.head = new Node((char) ('a' + (int) (Math.random() * 18)), null, null);
+        Node temp = this.head;
+        for (int i = 1; i < size - 1; i++) {
             char c = (char) ('a' + (int) (Math.random() * 18));
             Node n = new Node(c, temp, null);
-            if(i==0){this.head.setNext(n);}
+            if (i == 0) {
+                this.head.setNext(n);
+            }
             temp.setNext(n);
             temp = n;
         }
-        if(size==1){
-            this.last=this.head;
+        if (size == 1) {
+            this.last = this.head;
             return;
         }
         this.last = new Node((char) ('a' + (int) (Math.random() * 18)), temp, this.head);
@@ -46,18 +49,22 @@ public class ParkingProblem_LinkedList {
     @Override
     public String toString() {
         String s = "";
-        s += "ParkingProblem_LinkedList{" ;
-        if(this.head==null&&this.last==null){return s+="}";}
-        if(this.head==this.last){return s+=this.head.getData()+"}";}
+        s += "ParkingProblem_LinkedList{";
+        if (this.head == null && this.last == null) {
+            return s += "}";
+        }
+        if (this.head == this.last) {
+            return s += this.head.getData() + "}";
+        }
 
-                Node temp=new Node(this.head);
-                while(temp!=this.head){
-                    s+=temp.getData();
-                    s+=",";
-                    temp=temp.getNext();
-                }
-                s+='}';
-                return s;
+        Node temp = new Node(this.head);
+        while (temp != this.head) {
+            s += temp.getData();
+            s += ",";
+            temp = temp.getNext();
+        }
+        s += '}';
+        return s;
     }
 
     /**
@@ -66,8 +73,12 @@ public class ParkingProblem_LinkedList {
      * @return - the number of the car
      */
     public int calCars() {
-        if(this.head==null){return 0;}
-        if(this.head==this.last){return 1;}
+        if (this.head == null) {
+            return 0;
+        }
+        if (this.head == this.last) {
+            return 1;
+        }
         this.head.setData(v);
         Node t = this.head.getNext();
         boolean flag = true;
