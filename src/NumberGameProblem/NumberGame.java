@@ -61,7 +61,6 @@ public class NumberGame {
     }
 
 
-
     public static void main(String[] args) {
         int[] arr = {5, 6, 10, 11};
         int[][] matrix = matrixBuilder(arr);

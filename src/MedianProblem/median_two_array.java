@@ -26,8 +26,8 @@ public class median_two_array {
     }
 
     public static void main(String[] args) {
-        int [] a ={4,50,100,120,200};
-        int [] b= {45,51,78,91,102};
+        int [] b ={4,50,100,120,200};
+        int [] a= {45,51,78,91,102};
 
         int [] c = medianArray(a,b);
         System.out.println(Arrays.toString(a));
