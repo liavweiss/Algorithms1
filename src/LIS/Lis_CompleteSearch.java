@@ -54,3 +54,8 @@ public class Lis_CompleteSearch {
         System.out.println(Arrays.toString(wholeSearch(arr)));
     }
 }
+
+/**
+ *סיבוכיות של O(2^n*n)
+ * ברור שהשיטה הי נכונה כי עוברים על כל האפשרויות
+ **/

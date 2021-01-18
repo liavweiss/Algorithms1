@@ -1,7 +1,7 @@
 package Test_18_02_2018;
 
 /**
- * This class represents a solution for Q2 from the test date: 18.02.2018.
+ * This class represents a solution for Q4 from the test date: 18.02.2018.
  * Receives an array and returns the indexes where the array difference is the maximum.
  */
 public class Q4 {
