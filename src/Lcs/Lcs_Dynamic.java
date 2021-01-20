@@ -38,7 +38,7 @@ public class Lcs_Dynamic {
     /**
      * O(m+n)
      */
-    public static int lsc(String x, String y) {
+    public static String lsc(String x, String y) {
         int[][] matrix = matrixBuilder(x, y);
         int row = matrix.length;
         int col = matrix[0].length;
@@ -60,8 +60,8 @@ public class Lcs_Dynamic {
                 i--;
             }
         }
-        System.out.println((Arrays.deepToString(matrix)));
-        return result.length();
+
+        return result;
     }
 
     public static void main(String[] args) {
