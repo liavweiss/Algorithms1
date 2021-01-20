@@ -5,6 +5,23 @@ import java.util.LinkedList;
 /**
  * This class solves the problem of turtle and the rabbit.
  */
+class Node {
+    public int data;
+    public Node prev, next;
+
+    public Node(int data, Node prev, Node next) {
+        this.data = data;
+        this.next = next;
+        this.prev = prev;
+    }
+
+    public String toString() {
+        return "" + this.data;
+    }
+
+}
+
+
 public class isCycle {
     public LinkedList<Node> list;
     public Node head,last;
@@ -13,10 +30,11 @@ public class isCycle {
     /**
      * Default constructor
      */
-    public isCycle(){
+    public isCycle(int size){
         list=new LinkedList<>();
         this.head=this.last=null;
         this.counter=0;
+        isCycle_builder(size);
     }
 
     /**
@@ -31,8 +49,8 @@ public class isCycle {
         Node temp=this.head;
         for (int i =1; i < size-1 ; i++) {
             Node n = new Node(counter++, temp, null);
-            if(i==0){this.head.setNext(n);}
-            temp.setNext(n);
+            if(i==0){this.head.next = n;}
+            temp.next = n;
             temp = n;
         }
         if(size==1){
@@ -40,8 +58,8 @@ public class isCycle {
             return;
         }
         this.last = new Node(counter++, temp, this.head);
-        temp.setNext(this.last);
-        this.head.setPrev(last);
+        temp.next = this.last;
+        this.head.prev = last;
     }
 
     /**
@@ -59,14 +77,14 @@ public class isCycle {
 
         while(flag){
             counter++;
-            if(tertel.getNext()==null || rabbit.getNext()==null || rabbit.getNext().getNext()==null){
+            if(tertel.next==null || rabbit.next==null || rabbit.next.next==null){
                 flag=false;
                 ans=false;
             }
             else{
-                tertel=tertel.getNext();
-                rabbit=rabbit.getNext().getNext();
-                if(tertel.getData()==rabbit.getData()){
+                tertel=tertel.next;
+                rabbit=rabbit.next.next;
+                if(tertel.data==rabbit.data){
                    flag=false;
                     ans=true;
                 }
@@ -76,8 +94,7 @@ public class isCycle {
     }
 
     public static void main(String[] args) {
-        isCycle problem = new isCycle();
-        problem.isCycle_builder(15);
+        isCycle problem = new isCycle(15);
         System.out.println(problem.ifCycle());
     }
 }

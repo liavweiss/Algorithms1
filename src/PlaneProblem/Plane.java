@@ -202,8 +202,8 @@ public class Plane {
         }
         int firstPath = minPathFromTo(0,0 , x1 , y1);
         int secondPath = minPathFromTo(x1,y1,x2,y2);
-        int thirdSum = minPathFromTo(x2,y2,mat.length-1,mat[0].length-1);
-        if(firstPath+secondPath+thirdSum == cheapestPrice){
+        int thirdPath = minPathFromTo(x2,y2,mat.length-1,mat[0].length-1);
+        if(firstPath+secondPath+thirdPath == cheapestPrice){
             return true;
         }
         return false;

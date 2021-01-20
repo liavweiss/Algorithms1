@@ -93,7 +93,54 @@ public class Q1_plane {
         int cheapest = cheapestPrice;
         buildMatrixForExpensivePath();
         int expensive = mat[mat.length - 1][mat[0].length - 1].data;
+        buildMatrix(); // return to the correct matrix.
         return expensive - cheapest;
+
+    }
+
+    /**
+     *checks if two point are on the same shortest path.
+     */
+    public boolean onTheSamePath(int x1, int y1, int x2, int y2){
+        if(x1<x2&&y1>y2 || x1>x2&&y1<y2){
+            return false;
+        }
+        int firstPath = minPathFromTo(0,0 , x1 , y1);
+        int secondPath = minPathFromTo(x1,y1,x2,y2);
+        int thirdSum = minPathFromTo(x2,y2,mat.length-1,mat[0].length-1);
+        if(firstPath+secondPath+thirdSum == cheapestPrice){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * return the minimal price from point (x1,y1) to (x2,y2)
+     * Complexity: O(n*m)
+     */
+    private int minPathFromTo(int x1, int y1, int x2, int y2) {
+        // By the question I assume the input is correct
+        Node[][] temp = new Node[x2-x1 + 1][y2-y1 + 1];
+        for (int i = 0; i < temp.length; i++) {
+            for (int j = 0; j < temp[0].length; j++) {
+                temp[i][j] = new Node(0, 0);
+            }
+        }
+        for (int i = 1; i < x2-x1 + 1; i++) {
+            temp[i][0].data =temp[i - 1][0].data + mat[i - 1 + x1][y1].up ;
+        }
+        for (int j = 1; j < y2-y1 + 1; j++) {
+            temp[0][j].data = temp[0][j - 1].data + mat[x1][j - 1 + y1].right;
+        }
+        for (int i = 1; i < x2-x1 + 1; i++) {
+            for (int j = 1; j < y2-y1 + 1; j++) {
+                int x = temp[i - 1][j].data + mat[i - 1 + x1][j + y1].up;
+                int y = temp[i][j - 1].data + mat[i + x1][j - 1 + y1].right;
+                temp[i][j].data = x <= y ? x : y;
+
+            }
+        }
+        return temp[x2-x1][y2-y1].data;
     }
 
 
@@ -118,5 +165,6 @@ public class Q1_plane {
         Q1_plane bp = new Q1_plane(mat);
         System.out.println(bp.cheapestPrice);
         System.out.println(bp.diffLargestShortestPat());
+        System.out.println(bp.onTheSamePath(1,1,3,2));
     }
 }

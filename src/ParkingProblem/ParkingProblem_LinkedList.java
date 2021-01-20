@@ -4,6 +4,27 @@ package ParkingProblem;
 /**
  * This class solves the parking problem using a LinkedList.
  */
+class Node {
+    public char data;
+    public Node prev, next;
+
+    public Node(char data, Node prev, Node next) {
+        this.data = data;
+        this.next = next;
+        this.prev = prev;
+    }
+    public Node(Node n){
+        this.next=n.next;
+        this.prev=n.prev;
+        this.data=n.data;
+    }
+
+    public String toString() {
+        return "" + this.data;
+    }
+
+}
+
 public class ParkingProblem_LinkedList {
     public Node head, last;
     final char v = 'v', w = 'w';
@@ -12,8 +33,9 @@ public class ParkingProblem_LinkedList {
     /**
      * Default constructor
      */
-    public ParkingProblem_LinkedList() {
+    public ParkingProblem_LinkedList(int size) {
         this.head = this.last = null;
+        ParkingProblem_builder(size);
     }
 
 
@@ -32,9 +54,9 @@ public class ParkingProblem_LinkedList {
             char c = (char) ('a' + (int) (Math.random() * 18));
             Node n = new Node(c, temp, null);
             if (i == 0) {
-                this.head.setNext(n);
+                this.head.next = n;
             }
-            temp.setNext(n);
+            temp.next = n;
             temp = n;
         }
         if (size == 1) {
@@ -42,8 +64,8 @@ public class ParkingProblem_LinkedList {
             return;
         }
         this.last = new Node((char) ('a' + (int) (Math.random() * 18)), temp, this.head);
-        temp.setNext(this.last);
-        this.head.setPrev(last);
+        temp.next = this.last;
+        this.head.prev = last;
     }
 
     @Override
@@ -54,14 +76,14 @@ public class ParkingProblem_LinkedList {
             return s += "}";
         }
         if (this.head == this.last) {
-            return s += this.head.getData() + "}";
+            return s += this.head.data + "}";
         }
 
         Node temp = new Node(this.head);
         while (temp != this.head) {
-            s += temp.getData();
+            s += temp.data;
             s += ",";
-            temp = temp.getNext();
+            temp = temp.next;
         }
         s += '}';
         return s;
@@ -79,28 +101,28 @@ public class ParkingProblem_LinkedList {
         if (this.head == this.last) {
             return 1;
         }
-        this.head.setData(v);
-        Node t = this.head.getNext();
+        this.head.data = v;
+        Node t = this.head.next;
         boolean flag = true;
         int counter = 1;
 
         while (flag) {
-            if (t.getData() == v) {
-                t.setData(w);
+            if (t.data == v) {
+                t.data = w;
                 int i = counter;
 
                 while (i > 0) {
-                    t = t.getPrev();
+                    t = t.prev;
                     i--;
                 }
-                if (t.getData() == w) {
+                if (t.data == w) {
                     flag = false;
                 } else {
                     counter = 1;
-                    t = this.head.getNext();
+                    t = this.head.next;
                 }
             } else {
-                t = t.getNext();
+                t = t.next;
                 counter++;
             }
         }
@@ -108,7 +130,7 @@ public class ParkingProblem_LinkedList {
     }
 
     public static void main(String[] args) {
-        ParkingProblem_LinkedList problem = new ParkingProblem_LinkedList();
+        ParkingProblem_LinkedList problem = new ParkingProblem_LinkedList(20);
         System.out.println(problem.toString());
         System.out.println(problem.calCars());
     }

@@ -7,6 +7,22 @@ import java.util.LinkedList;
 /**
  * This class solves the problem of a list associated with an arm
  */
+
+ class Node {
+    public int data;
+    public Node prev, next;
+
+    public Node(int data, Node prev, Node next) {
+        this.data = data;
+        this.next = next;
+        this.prev = prev;
+    }
+
+    public String toString() {
+        return "" + this.data;
+    }
+}
+
 public class LinkedList_withArm {
 
         public LinkedList<Node> list;
@@ -16,10 +32,11 @@ public class LinkedList_withArm {
         /**
          * Default constructor
          */
-        public LinkedList_withArm(){
+        public LinkedList_withArm(int sizeOfArm, int sizeOfList){
             list=new LinkedList<>();
             this.head=this.last=null;
             this.counter=0;
+            ListWithArm_builder(sizeOfArm, sizeOfList);
         }
 
         /**
@@ -38,8 +55,8 @@ public class LinkedList_withArm {
             Node temp=this.head;
             for (int i =0; i < sizeOfArm-1 ; i++) {
                 Node n = new Node(counter++, temp, null);
-                if(i==0){this.head.setNext(n);}
-                temp.setNext(n);
+                if(i==0){this.head.next = n;}
+                temp.next = n;
                 temp = n;
             }
             if(sizeOfArm==sizeOfList){
@@ -49,7 +66,7 @@ public class LinkedList_withArm {
             Node temp2=temp;
             for (int i =0; i < sizeOfList-sizeOfArm-1; i++) {
                 Node n = new Node(counter++, temp, null);
-                temp.setNext(n);
+                temp.next = n;
                 temp = n;
             }
             if(sizeOfList==1){
@@ -57,8 +74,8 @@ public class LinkedList_withArm {
                 return;
             }
             this.last = new Node(counter++, temp, temp2);
-            temp.setNext(this.last);
-            temp2.setPrev(last);
+            temp.next = this.last;
+            temp2.prev = last;
         }
 
         public int ArmLength() {
@@ -69,13 +86,13 @@ public class LinkedList_withArm {
             Node rabbit = this.head;
 
             while (flag) {
-                if (tertel.getNext() == null || rabbit.getNext() == null || rabbit.getNext().getNext() == null) {
+                if (tertel.next == null || rabbit.next == null || rabbit.next.next == null) {
                     flag = false;
                     run = false;
                 } else {
-                    tertel = tertel.getNext();
-                    rabbit = rabbit.getNext().getNext();
-                    if (tertel.getData() == rabbit.getData()) {
+                    tertel = tertel.next;
+                    rabbit = rabbit.next.next;
+                    if (tertel.data == rabbit.data) {
                         flag = false;
                         run = true;
                     }
@@ -84,11 +101,11 @@ public class LinkedList_withArm {
             rabbit = this.head;
 
             while (run) {
-                if (tertel.getData() == rabbit.getData()) {
+                if (tertel.data == rabbit.data) {
                     run = false;
                 } else {
-                    tertel = tertel.getNext();
-                    rabbit = rabbit.getNext();
+                    tertel = tertel.next;
+                    rabbit = rabbit.next;
                 }
                 ans++;
             }
@@ -96,8 +113,7 @@ public class LinkedList_withArm {
         }
 
     public static void main(String[] args) {
-        LinkedList_withArm problem = new LinkedList_withArm();
-        problem.ListWithArm_builder(5,8);
+        LinkedList_withArm problem = new LinkedList_withArm(5,8);
         System.out.println(problem.ArmLength());
     }
 }
