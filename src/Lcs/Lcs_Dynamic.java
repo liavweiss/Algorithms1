@@ -1,7 +1,5 @@
 package Lcs;
 
-import java.util.Arrays;
-
 /**
  * This class represents an algorithm for solving the LCS problem - finding the largest common string
  * (order is important, sequences are not important).
@@ -38,7 +36,7 @@ public class Lcs_Dynamic {
     /**
      * O(m+n)
      */
-    public static String lsc(String x, String y) {
+    public static String lcs(String x, String y) {
         int[][] matrix = matrixBuilder(x, y);
         int row = matrix.length;
         int col = matrix[0].length;
@@ -70,7 +68,7 @@ public class Lcs_Dynamic {
         int i=0;
         int j=0;
         int k=0;
-        String lcs = lsc(x,y);
+        String lcs = lcs(x,y);
 
         while(k<lcs.length()){
             if(x.charAt(i) == y.charAt(j) && y.charAt(j) == lcs.charAt(k)){
@@ -106,7 +104,7 @@ public class Lcs_Dynamic {
 
         String x = "abcbdab";
         String y = "bdcaba";
-        System.out.println(lsc(s1,s2));
+        System.out.println(lcs(s1,s2));
         System.out.println(minLongestContainsTwoStrings(x,y));
     }
 }

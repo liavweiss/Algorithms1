@@ -8,6 +8,7 @@ import java.util.Arrays;
 public class GlassBalls {
 
     /**
+     * return the number of the minimal first floor that the ball is brake.
      * O(sqrt(n))
      */
     public static int numOfFloorBrokenBall(int a, int[] building) {

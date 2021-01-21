@@ -1,7 +1,7 @@
-package Test_31_7_2017;
+package Test_31_10_2017;
 
 /**
- * This class represents a solution for Q2 from the test date: 31.07.2017.
+ * This class represents a solution for Q2 from the test date: 31.10.2017.
  */
 public class Q2_ballGlass {
     public static int glassBall2(int[] floors, int ball) {
@@ -17,7 +17,7 @@ public class Q2_ballGlass {
                 currentFloor = currentFloor - step + 1;
                 while(!isBreak) {
                     if(floors[currentFloor] > ball) {
-                        return currentFloor;
+                        return currentFloor+1;
                     }
                     currentFloor++;
                 }
@@ -27,11 +27,11 @@ public class Q2_ballGlass {
             currentFloor += step;
             if(currentFloor > n-1) currentFloor = n-1;
         }
-        return n;
+        return -1;
     }
     public static void main(String[] args) {
         System.out.println(glassBall2(new int[] {10,20,30,40,50,60,70},55));
-        System.out.println(glassBall2(new int[] {10,11,12,13,14,15,16,17,18,19,20,21},10));
+        System.out.println(glassBall2(new int[] {10,11,12,13,14,15,16,17,18,19,20,21},23));
     }
 }
 
