@@ -5,7 +5,9 @@ package PowerProblem;
  */
 public class Power {
 
-
+    /**
+     *power on complexity of O(log n)
+     */
     public static int PowerByLoop(int x, int n) {
         int result = 1;
 

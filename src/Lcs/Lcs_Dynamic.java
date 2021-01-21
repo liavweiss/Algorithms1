@@ -64,11 +64,50 @@ public class Lcs_Dynamic {
         return result;
     }
 
+
+    public static String minLongestContainsTwoStrings(String x, String y){
+        String results = "";
+        int i=0;
+        int j=0;
+        int k=0;
+        String lcs = lsc(x,y);
+
+        while(k<lcs.length()){
+            if(x.charAt(i) == y.charAt(j) && y.charAt(j) == lcs.charAt(k)){
+                results+=x.charAt(i);
+                i++;
+                k++;
+                j++;
+            }
+            else{
+                if(x.charAt(i) == lcs.charAt(k)){
+                    results+=y.charAt(j);
+                    j++;
+                }
+                else {
+                    if (y.charAt(j) == lcs.charAt(k)) {
+                        results += x.charAt(i);
+                        i++;
+                    } else {
+                        results += x.charAt(i);
+                        results += y.charAt(j);
+                        i++;
+                        j++;
+                    }
+                }
+            }
+        }
+        return results;
+    }
+
     public static void main(String[] args) {
         String s1 = "abcdefgh";
         String s2 = "abjhcfdabcdelfg";
 
+        String x = "abcbdab";
+        String y = "bdcaba";
         System.out.println(lsc(s1,s2));
+        System.out.println(minLongestContainsTwoStrings(x,y));
     }
 }
 

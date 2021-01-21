@@ -8,7 +8,7 @@ import java.util.Arrays;
  * they can take either the outer left or the outer right, the winner is the one whose sum of numbers is the largest.
  * with algorithms dynamic with complexity of O(n^2).
  */
-public class NumberGame {
+public class NumberGame_Dynamic {
 
     public static int[][] matrixBuilder(int[] game) {
         int n = game.length;
@@ -57,15 +57,25 @@ public class NumberGame {
             }
             System.out.println("first: game[" + first + "] =" + game[first] + ", second: game[" + second + "] = " + game[second]);
         }
-        System.out.println("firstSum= " + firstSum + ", secondSum =" + secondSum + "the diff is: " + (firstSum - secondSum));
+        System.out.println("firstSum= " + firstSum + ", secondSum =" + secondSum + ", the diff is: " + (firstSum - secondSum));
+    }
+
+
+    /**
+     * Return the maximum diff from player 1 to player 2.
+     */
+    public static int maxDiff(int [] game){
+        int [][] mat = matrixBuilder(game);
+        return mat[0][mat.length-1];
     }
 
 
     public static void main(String[] args) {
-        int[] arr = {5, 6, 10, 11};
+        int[] arr = {5, 6, 10, 8};
         int[][] matrix = matrixBuilder(arr);
         System.out.println(Arrays.deepToString(matrix));
         gameStrategy(arr);
+        System.out.println(maxDiff(arr));
     }
 }
 

@@ -11,19 +11,20 @@ public class Lis_Dynamic {
      */
 
 
-    //O(n log n)
-    //return the length of the sub-series.
+    /**
+     *Lis length - O(nlog n)
+     */
     public static int LISLength(int[] a) {
         int[] arr = new int[a.length];
         arr[0]=a[0];
-        int lis = 1;
+        int lis = 0;
         int index;
         for (int i = 1; i < a.length; i++) {
             index= binarySearchForLength(arr , a[i] , lis );
             arr[index]=a[i];
             if(index>lis) lis++;
         }
-        return lis;
+        return lis+1;
     }
 
 
@@ -45,20 +46,23 @@ public class Lis_Dynamic {
 
 
 
+    /**
+     * Lis sub series  - O(n^2)
+     */
     public static int[] LIS(int[] arr) {
         int n = arr.length;
         int[][] mat = new int[n][n];
         mat[0][0] = arr[0];
-        int end = 1;
+        int currentLen = 1;
         for (int i = 1; i < n; i++) {
-            int index = binarySearchAllSubSeries(mat,end,arr[i]);
+            int index = binarySearchAllSubSeries(mat,currentLen,arr[i]);
             mat[index][index] = arr[i];
-            if(index == end) end++;
+            if(index == currentLen) currentLen++;
             copy(mat,index);
         }
-        int[] ans = new int[end];
+        int[] ans = new int[currentLen];
         for (int i = 0; i < ans.length; i++) {
-            ans[i] = mat[end-1][i];
+            ans[i] = mat[currentLen-1][i];
         }
         return ans;
     }
@@ -84,14 +88,32 @@ public class Lis_Dynamic {
         }
     }
 
+    /**
+     * Lis circle array - O(n^4)
+     */
+    public static int [] LISCircle (int [] arr){
+        int[]  arrNew = new int [arr.length*2];
+        int j = 0;
+        for(int i=0; i<arrNew.length; i++){
+            arrNew[i] = arr[j];
+            j++;
+            if(j==arrNew.length/2){
+                j=0;
+            }
+        }
+        return LIS(arrNew);
+    }
 
 
     public static void main(String[] args) {
-        int [] arr ={8,4,12,2,3,10,14};
+        int [] arr ={5,9,3,4};
         System.out.println(LISLength(arr));
         System.out.println(Arrays.toString(LIS(arr)));
+        System.out.println(Arrays.toString(LISCircle(arr)));
     }
 }
+
+
 
 
 /**
