@@ -1,5 +1,7 @@
 package Lcs;
 
+import java.util.Arrays;
+
 /**
  * This class represents an algorithm for solving the LCS problem - finding the largest common string
  * (order is important, sequences are not important).
@@ -63,6 +65,10 @@ public class Lcs_Dynamic {
     }
 
 
+    /**
+     * return the minimum sub string length that x,y contains on her.
+     * its not work yet.
+     */
     public static String minLongestContainsTwoStrings(String x, String y){
         String results = "";
         int i=0;
@@ -70,7 +76,7 @@ public class Lcs_Dynamic {
         int k=0;
         String lcs = lcs(x,y);
 
-        while(k<lcs.length()){
+        while(k<lcs.length() && i<x.length() && j<y.length()){
             if(x.charAt(i) == y.charAt(j) && y.charAt(j) == lcs.charAt(k)){
                 results+=x.charAt(i);
                 i++;
@@ -95,19 +101,75 @@ public class Lcs_Dynamic {
                 }
             }
         }
+        while(i<x.length()){
+            results += x.charAt(i++);
+        }
+        while(j<y.length()){
+            results += y.charAt(j++);
+        }
         return results;
+    }
+
+    /**
+     * return the minimum longest sub string length that x,y contains on her.
+     */
+    public static int minLongestContainsTwoStringsLength(String x, String y){
+        int ans =0;
+        String  lcs = lcs(x, y);
+        ans = x.length() + y.length() - lcs.length();
+        return ans;
+    }
+
+    /**
+     *return the one of sub-strings that calculate from start to end, and from end to start.
+     */
+    public static String palindroms(String s){
+        String ans = "";
+        String ansReverse = "";
+        for(int i=0; i<s.length(); i++){
+            if(s.charAt(i)!=' '){
+                ans+=s.charAt(i);
+                ansReverse = s.charAt(i) + ansReverse;
+            }
+        }
+        return lcs(ans,ansReverse);
+    }
+
+    /**
+     * count hoh many time we delete or insert for change x to be y.
+     * O(n*m) - because lcs.
+     */
+    public static void lcsInsertDelete(String x, String y) {
+        String lcs = lcs(x, y);
+        System.out.println(lcs);
+        int n = lcs.length();
+
+        int delete = x.length() - n;
+        int insert = y.length() - n;
+
+        System.out.println("The number of delete is: "+delete);
+        System.out.println("The number of insert is: "+insert);
     }
 
     public static void main(String[] args) {
         String s1 = "abcdefgh";
         String s2 = "abjhcfdabcdelfg";
-
+        System.out.println(lcs(s1,s2));
         String x = "abcbdab";
         String y = "bdcaba";
-        System.out.println(lcs(s1,s2));
         System.out.println(minLongestContainsTwoStrings(x,y));
+        System.out.println(minLongestContainsTwoStringsLength(x,y));
+
+        String palindrom = "a bcd  fklr dc b a";
+        System.out.println(palindroms(palindrom));
+
+        String x2 = "abcdefklk";
+        String y2 = "brcdeal";
+        lcsInsertDelete(x2,y2);
     }
 }
+
+
 
 /**
  * הוכחת נכונות:

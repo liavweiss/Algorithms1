@@ -135,6 +135,9 @@ public class GlassBalls {
         return matChecks[balls][n];
     }
 
+
+
+
     public static void main(String[] args) {
 
         System.out.println(numOfFloorBrokenBall(78,  new int[]{10, 20, 30, 40, 50, 60, 70, 80, 90, 100}));
@@ -142,6 +145,8 @@ public class GlassBalls {
         System.out.println(numOfCheckingFor2Ball(10));
         System.out.println(numOfCheckingFor3Ball(10));
         System.out.println(numOfCheckingForKBall(4, 105));
+        System.out.println("**************");
+        //System.out.println(superEggDrop(4,105 ));
     }
 }
 
@@ -175,4 +180,25 @@ public class GlassBalls {
 //        }
 //        System.out.println("The second ball brakes at floor: "+currentFloor);
 //        System.out.println("the number of checks is: "+numOfCheck);
+//    }
+
+
+//    public static int superEggDrop(int E, int F) {
+//
+//        int[][] floors = new int[F+1][E+1];
+//
+//        for (int d=1; d<=F; d++) {
+//            for (int e=1; e<=E; e++) {
+//
+//                floors[d][e] = 1
+//                        + floors[d-1][e-1]
+//                        + floors[d-1][e];
+//
+//                if (floors[d][e] >= F) {
+//                    return d;
+//                }
+//            }
+//        }
+//
+//        return -1;
 //    }

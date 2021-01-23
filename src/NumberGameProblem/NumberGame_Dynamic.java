@@ -71,7 +71,7 @@ public class NumberGame_Dynamic {
 
 
     public static void main(String[] args) {
-        int[] arr = {5, 6, 10, 8};
+        int[] arr = {10,5,14,20};
         int[][] matrix = matrixBuilder(arr);
         System.out.println(Arrays.deepToString(matrix));
         gameStrategy(arr);

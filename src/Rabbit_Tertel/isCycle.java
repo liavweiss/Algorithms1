@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 /**
  * This class solves the problem of turtle and the rabbit.
+ * complexity of O(n).
  */
 class Node {
     public int data;
