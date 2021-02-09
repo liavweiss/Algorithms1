@@ -1,7 +1,7 @@
 package Test_15_10_2018;
 
 /**
- * This class represents a solution for Q2 from the test date: 15.10.2018.
+ * This class represents a solution for Test_24_1_2021.Q2 from the test date: 15.10.2018.
  */
 public class Q2_prisoners {
 

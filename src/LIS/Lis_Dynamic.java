@@ -105,7 +105,7 @@ public class Lis_Dynamic {
     }
 
     /**
-     * return the LDS the largest descending sub-array.
+     * return the LDS the largest descending sub-series.
      */
     public static int[] LDS(int[] arr){
         int[] arrReverse = new int [arr.length];
@@ -120,13 +120,29 @@ public class Lis_Dynamic {
         return ansReverse;
     }
 
+    /**
+     *return the length of the longest sub series ascending and descending.
+     * complexity of O(n log n)
+     */
+    public static int lengthOfLisLds(int arr[]){
+        int[] arrReverse = new int [arr.length];
+        for(int i=0; i<arr.length; i++){
+            arrReverse[i] = arr[arr.length-i-1];
+        }
+        int lis = LISLength(arr);
+        int lds = LISLength(arrReverse);
+        return lis+lds-1;
+    }
+
 
     public static void main(String[] args) {
         int [] arr ={5,9,3,4,2,1};
+        int[] arr2 = {1,2,3,4,5,4,3,2,1};
         System.out.println(LISLength(arr));
         System.out.println(Arrays.toString(LIS(arr)));
         System.out.println(Arrays.toString(LISCircle(arr)));
         System.out.println(Arrays.toString(LDS(arr)));
+        System.out.println(lengthOfLisLds(arr2));
     }
 }
 

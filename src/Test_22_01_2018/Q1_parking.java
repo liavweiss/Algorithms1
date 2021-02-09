@@ -117,12 +117,12 @@ class parking_arm {
 }
 
 /**
- * This class represents a solution for Q1 from the test date: 22.01.2018.
+ * This class represents a solution for Test_24_1_2021.Q1 from the test date: 22.01.2018.
  */
 public class Q1_parking {
 
     /**
-     * Q1:
+     * Test_24_1_2021.Q1:
      */
     public static int calCar(parking park) {
         if (park.head == null) {
@@ -158,7 +158,7 @@ public class Q1_parking {
     }
 
     /**
-     * Q1:b:
+     * Test_24_1_2021.Q1:b:
      */
     public static int parkingArm(parking_arm p) {
         Node_arm turtle = p.head;

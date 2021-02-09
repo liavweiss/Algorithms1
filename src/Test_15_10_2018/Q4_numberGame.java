@@ -1,7 +1,7 @@
 package Test_15_10_2018;
 
 /**
- * This class represents a solution for Q1 from the test date: 15.10.2018.
+ * This class represents a solution for Test_24_1_2021.Q1 from the test date: 15.10.2018.
  */
 public class Q4_numberGame {
 

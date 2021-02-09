@@ -3,7 +3,7 @@ package Test_18_02_2018;
 import java.util.Arrays;
 
 /**
- * This class represents a solution for Q2 from the test date: 18.02.2018.
+ * This class represents a solution for Test_24_1_2021.Q2 from the test date: 18.02.2018.
  */
 public class Q2_median {
 

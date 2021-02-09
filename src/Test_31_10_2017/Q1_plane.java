@@ -1,7 +1,7 @@
 package Test_31_10_2017;
 
 /**
- * This class represents a solution for Q1 from the test date: 31.10.2017.
+ * This class represents a solution for Test_24_1_2021.Q1 from the test date: 31.10.2017.
  */
 
 class Node {

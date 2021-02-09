@@ -46,16 +46,22 @@ public class NumberGame_Dynamic {
             if (i != j) {
                 if (game[i] - matrix[i + 1][j] > game[j] - matrix[i][j - 1]) {
                     secondSum += game[i];
-                    second++;
+                    second = i++;
                 } else {
                     secondSum += game[j];
                     second = j--;
                 }
             } else { //j=0 or i=n-1
-                second = j;
                 secondSum += game[j];
+                second = j--;
+
             }
             System.out.println("first: game[" + first + "] =" + game[first] + ", second: game[" + second + "] = " + game[second]);
+        }
+        if (n % 2 != 0) {
+            firstSum += game[j];
+            first = j;
+            System.out.println("first: game[" + first + "] =" + game[first]);
         }
         System.out.println("firstSum= " + firstSum + ", secondSum =" + secondSum + ", the diff is: " + (firstSum - secondSum));
     }
@@ -64,14 +70,14 @@ public class NumberGame_Dynamic {
     /**
      * Return the maximum diff from player 1 to player 2.
      */
-    public static int maxDiff(int [] game){
-        int [][] mat = matrixBuilder(game);
-        return mat[0][mat.length-1];
+    public static int maxDiff(int[] game) {
+        int[][] mat = matrixBuilder(game);
+        return mat[0][mat.length - 1];
     }
 
 
     public static void main(String[] args) {
-        int[] arr = {10,5,14,20};
+        int[] arr = {10, 5, 14, 20};
         int[][] matrix = matrixBuilder(arr);
         System.out.println(Arrays.deepToString(matrix));
         gameStrategy(arr);
@@ -81,7 +87,7 @@ public class NumberGame_Dynamic {
 
 
 /**
- *הוכחת נכונות
+ * הוכחת נכונות
  * תכנות דינאמי
  * אנחנו בונים מטריצת עזר שאיברי האלכסון שלה הם איברי המערך של המשחק
  * נרוץ מהפינה הימנית של המטריצה עד לפינה השמאלית העליונה כשר בכל תר יהיה את המקסימום רווח
@@ -89,7 +95,7 @@ public class NumberGame_Dynamic {
  * כאשר:
  * I - אינדקס של איבר שמאלי שפנוי
  * J - אינדקס של איבר ימיני שפנוי
- *
+ * <p>
  * הרווח המקסימאלי של שחקן במצב (I,J) יהיה:
  * F(I,J) = max(aI - F(I+1, J), F(aJ-F(I,J-1).
  */

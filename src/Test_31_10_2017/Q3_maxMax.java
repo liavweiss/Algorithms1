@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 /**
- * This class represents a solution for Q2 from the test date: 31.10.2017.
+ * This class represents a solution for Test_24_1_2021.Q2 from the test date: 31.10.2017.
  */
 class Node_max {
     public int number;

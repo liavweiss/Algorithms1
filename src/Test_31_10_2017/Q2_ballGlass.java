@@ -1,7 +1,7 @@
 package Test_31_10_2017;
 
 /**
- * This class represents a solution for Q2 from the test date: 31.10.2017.
+ * This class represents a solution for Test_24_1_2021.Q2 from the test date: 31.10.2017.
  */
 public class Q2_ballGlass {
     public static int glassBall2(int[] floors, int ball) {

@@ -2,7 +2,7 @@ package Test_17_09_2018;
 
 
 /**
- * This class represents a solution for Q1 from the test date: 17.09.2018.
+ * This class represents a solution for Test_24_1_2021.Q1 from the test date: 17.09.2018.
  */
 public class Q3_galssBall {
     /**

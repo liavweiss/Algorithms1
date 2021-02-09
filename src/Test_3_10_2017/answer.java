@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class answer {
     /**
-     * Q1:a:
+     * Test_24_1_2021.Q1:a:
      */
     public static int oneMatrix(int[][] arr) {
         int n = arr.length;
@@ -46,7 +46,7 @@ public class answer {
     }
 
     /**
-     * Q1:b:
+     * Test_24_1_2021.Q1:b:
      */
     public static int oneMatrix2x2(int arr[][]) {
         int n = arr.length;
@@ -74,7 +74,7 @@ public class answer {
     }
 
     /**
-     * Q2:a:
+     * Test_24_1_2021.Q2:a:
      */
     public static int[] LISCircle(int [] a)
     {
